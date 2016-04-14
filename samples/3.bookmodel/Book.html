@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <script type="text/javascript" src="../../third/jquery-1.12.0.js"></script>
+	<script type="text/javascript" src="../../render/Render.js"></script>
+    <script type="text/javascript" src="Book.js"></script>
+	<script type="text/javascript">
+		function WebStart(){
+			var canvas = document.getElementById("c");
+            Context.InitGL(canvas);
+            
+            var book;
+            
+            var mep = new MultiEventProxy(["vs", "fs"], function(results){
+                
+                Context.gl.clear(Context.gl.COLOR_BUFFER_BIT | Context.gl.DEPTH_BUFFER_BIT);
+                
+                book = new Book(Context.gl, canvas.width, canvas.height, 30, 40);
+                book.vs = results["vs"];
+                book.fs = results["fs"];
+                
+                book.Load();
+                book.Draw();
+            });
+            
+            var vsLoader = new FileLoader();
+            vsLoader.Load("book.vs", function(vstext){
+                mep.Ready("vs", vstext);
+            });   
+            
+            var fsLoader = new FileLoader();
+            fsLoader.Load("book.fs", function(fstext){
+                mep.Ready("fs", fstext);
+            });
+                    
+            $(document).mousemove(function(e){
+                
+                $("span").text(e.pageX + ", " + e.pageY + ":" + e.which + " # " + canvas.offsetLeft + "," + canvas.offsetTop);
+                if (book){
+                    var cornerX = e.pageX - canvas.offsetLeft;
+                    var cornerY = canvas.height - (e.pageY - canvas.offsetTop);
+                    book.cornerX = cornerX;
+                    book.cornerY = cornerY;
+                    book.Draw();
+                }
+            });
+		}
+	</script>
+</head>
+
+<body onload="WebStart();">
+    <span>MouseInfo</span>
+    <p align="center">
+    
+	<canvas width="800" height="600" id="c"></canvas>
+    </p>
+</body>
+
+</html>

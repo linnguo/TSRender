@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<script type="text/javascript" src="../../render/Render.js"></script>
+	<script type="text/javascript">
+    
+        function Draw(params){
+            var vs = params["vs"];
+            var fs = params["fs"];
+            var gl = params["gl"];
+            
+            var mat = new Material(gl);
+            mat.Load(vs, fs);
+            
+            var mesh = Mesh.CreateBox();
+            
+            var camera = new Camera();
+            
+            camera.mode = ProjectMode.Perspective;
+            camera.aspect = 1;
+            camera.fov = 90;
+            camera.near = 0.1;
+            camera.far = 120;
+            
+            camera.eye = new Vector3(0, 4, -4 );
+            camera.target = new Vector3(0, 4, 1);
+            camera.top = new Vector3(0, 1, 0);
+            
+            var transform = new Transform();
+            
+            //var render = new MeshRender(gl);
+            var render = new WireFrameMeshRender(gl);
+            render.mesh = mesh;
+            render.camera = camera;
+            render.material = mat;
+            render.transform = transform;
+            render.LoadMesh();
+            
+            var f = 0;
+            
+            setInterval(function(){
+                
+                gl.clear(gl.COLOR_BUFFER_BIT | gl.DEPTH_BUFFER_BIT);
+                
+                f += 0.02;
+                if (f > 3.1415926 * 2){
+                    f = 0;
+                }
+                
+                transform.scale = Vector3.one;
+                transform.position = new Vector3(0, 0, 3);
+                transform.rotation = new Vector3(0, f, 0);
+                
+                render.material.Use();
+                render.Draw();
+            }, 16);
+        }
+    
+		function WebStart(){
+			
+			var canvas = document.getElementById("c");
+            Context.InitGL(canvas);
+            
+            var mep = new MultiEventProxy(["vs", "fs"], function(results){
+                results["gl"] = Context.gl;
+                Draw(results);
+            });
+            
+            var vsLoader = new FileLoader();
+            vsLoader.Load("diff.vs", function(vstext){
+                mep.Ready("vs", vstext);
+            });   
+            
+            var fsLoader = new FileLoader();
+            fsLoader.Load("diff.fs", function(fstext){
+                mep.Ready("fs", fstext);
+            });
+		}
+	</script>
+</head>
+
+<body onload="WebStart();">
+    <p align="center">
+	 <canvas width="400" height="400" id="c"></canvas>
+    </p>
+</body>
+
+</html>
