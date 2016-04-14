@@ -1,0 +1,16 @@
+{
+    "compilerOptions": {
+        "target": "ES5",
+        "outFile": "Render.js"
+    },
+    "files": [
+        "Math.ts",
+        "Mesh.ts",
+        "Material.ts",
+        "MeshRender.ts",
+        "WireFrameMeshRender.ts",
+        "Render.ts",
+        "ObjectParser.ts",
+        "MultiEventProxy.ts"
+    ]
+}
