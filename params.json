@@ -1,6 +1,6 @@
 {
   "name": "TSRender",
   "tagline": "",
-  "body": "# TSRender\r\n基于TypeScript和WebGL的超小型Render Framework. 还在开发中, 暂时不建议用在商业项目中.\r\n\r\n已经完成的部分有\r\n\r\n* 基础数学库(Vector2/Vector3/Matrix4x4)\r\n* 基础渲染组件\r\n * Mesh\r\n * Transform\r\n * Camera\r\n * Texture\r\n * Material/Shaders\r\n * MeshRender\r\n * ObjectParser\r\n\r\n未完成部分\r\n\r\n* 法线贴图和切线空间的换算\r\n* 骨骼动画\r\n* ShadowMap",
+  "body": "#TSRender\r\n基于TypeScript和WebGL的超小型Render Framework. 还在开发中, 暂时不建议用在商业项目中.\r\n\r\n已经完成的部分有\r\n\r\n* 基础数学库(Vector2/Vector3/Matrix4x4)\r\n* 基础渲染组件\r\n * Mesh\r\n * Transform\r\n * Camera\r\n * Texture\r\n * Material/Shaders\r\n * MeshRender\r\n * ObjectParser\r\n\r\n暂未完成的部分有\r\n\r\n* 法线贴图和切线空间的换算\r\n* 骨骼动画\r\n* ShadowMap\r\n\r\n部分Demo链接\r\n\r\n* [WireFrameCube](http://linnguo.github.io/TSRender/samples/0.cube/cube.html)\r\n* [Object](http://linnguo.github.io/TSRender/samples/1.object/TObjectParser.html)\r\n* [NormalMap](http://linnguo.github.io/TSRender/samples/2.normalmap/TObjectParser.html)\r\n* [BookModel](http://linnguo.github.io/TSRender/samples/3.bookmodel/Book.html)",
   "note": "Don't delete this file! It's used internally to help with page regeneration."
 }
