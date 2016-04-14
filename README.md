@@ -18,3 +18,10 @@
 * 法线贴图和切线空间的换算
 * 骨骼动画
 * ShadowMap
+
+部分Demo链接
+
+* [WireFrameCube](http://linnguo.github.io/TSRender/samples/0.cube/cube.html)
+* [Object](http://linnguo.github.io/TSRender/samples/1.object/TObjectParser.html)
+* [NormalMap](http://linnguo.github.io/TSRender/samples/2.normalmap/TObjectParser.html)
+* [BookModel](http://linnguo.github.io/TSRender/samples/3.bookmodel/Book.html)
