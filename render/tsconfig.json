@@ -1,16 +1,22 @@
 {
     "compilerOptions": {
         "target": "ES5",
-        "outFile": "Render.js"
+        "outFile": "../TSRender.js"
     },
     "files": [
+        "Camera.ts",
+        "Color.ts",
+        "Context.ts",
+        "FileLoader.ts",
+        "Material.ts",
         "Math.ts",
         "Mesh.ts",
-        "Material.ts",
         "MeshRender.ts",
-        "WireFrameMeshRender.ts",
-        "Render.ts",
+        "MultiEventProxy.ts",
         "ObjectParser.ts",
-        "MultiEventProxy.ts"
+        "Texture.ts",
+        "Transform.ts",
+        "Utils.ts",
+        "WireFrameMeshRender.ts"
     ]
 }

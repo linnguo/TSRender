@@ -2,8 +2,6 @@
  * ObjectParser
  */
 
-/// <reference path="../render/Render.ts" />
-
 class ObjectParser 
 {
     //Cache
