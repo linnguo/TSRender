@@ -1,4 +1,40 @@
 /**
+ * Joint
+ */
+class Joint {
+    invBindPos : Matrix4x4;
+    parentIdx : number;
+}
+
+/**
+ * JointPos
+ */
+class JointPos {
+    rotation: Quaternion;
+    translation: Vector3;
+    scale: number; 
+}
+
+/**
+ * Skeleton
+ */
+class Skeleton {
+    joints : Joint[];
+    
+}
+
+/**
+ * BoneWeight
+ */
+class BoneWeight {
+    boneIndex0 : number;
+    weight0 : number;
+    
+    boneIndex1 : number;
+    weight1 : number;
+}
+
+/**
  * Mesh
  */
 class Mesh
@@ -7,11 +43,16 @@ class Mesh
     uv : Vector2[];
     normals : Vector3[];
     colors : Color[];
+    tangents : Vector3[];
+    
     triangles : number[];
     
-    constructor()
-    {
-        
+    //骨骼动画
+    invBindPoses : Matrix4x4[];
+    boneWeights : BoneWeight[];
+    
+    Bind(skeleton: Skeleton) : Vector3[]{
+        return null;
     }
     
     static CreateBox(): Mesh
